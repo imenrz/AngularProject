@@ -12,4 +12,4 @@ export interface Event {
     nbrLikes:number;
 
 
-}
+} 

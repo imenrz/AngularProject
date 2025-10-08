@@ -7,13 +7,14 @@ import { Event } from '../../models/event';
   styleUrl: './list-event.component.css'
 })
 export class LidtEventComponent {
+  searchitem=""
 
   listevent: Event[] = [
   {
     id: 1,
     titre: "Concert Jazz",
     description: "Un concert exceptionnel avec des artistes internationaux.",
-    date: new Date("2025-10-15T20:00:00"),
+    date: new Date("2024-10-15T20:00:00"),
     lieu: "Théâtre Municipal",
     prix: 50,
     organisateurId: 101,
@@ -42,7 +43,7 @@ export class LidtEventComponent {
     prix: 25,
     organisateurId: 103,
     imageUrl: "images/event.png",
-    nbPlaces: 30,
+    nbPlaces: 5,
     nbrLikes: 48
   },
   {
@@ -58,4 +59,32 @@ export class LidtEventComponent {
     nbrLikes: 300
   }
 ];
+
+incrLikes (event:Event) {
+  return event.nbrLikes++
+}
+
+buyTicket (event:Event ) {
+  return event.nbPlaces--
+
+}
+
+isExpired (event: Event) {
+ return new Date (event.date) < new Date();
+  
+}
+
+filter(){
+  return this.listevent.filter((eventitem)=>eventitem.titre.toLowerCase().includes(this.searchitem.toLowerCase()));
+}
+
+
+
+
+
+
+
+
+
+
 }
