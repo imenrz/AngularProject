@@ -30,6 +30,10 @@
                          <button class="btn btn-sm btn-primary"  (click)="buyTicket(event)" [disabled]="event.nbPlaces==0">
                         Buy Ticket
                     </button>
+
+                        <button class="btn btn-sm btn-primary" [routerLink]="['./',event.id]" >
+                    view details
+                    </button>
                     <span class="ms-2"></span>
                 </div>
             </div>

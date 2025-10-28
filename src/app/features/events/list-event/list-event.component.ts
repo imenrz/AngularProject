@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Event } from '../../models/event';
+import { Event } from '../../../models/event';
 
 @Component({
   selector: 'app-list-event',
@@ -77,11 +77,6 @@ isExpired (event: Event) {
 filter(){
   return this.listevent.filter((eventitem)=>eventitem.titre.toLowerCase().includes(this.searchitem.toLowerCase()));
 }
-
-
-
-
-
 
 
 
