@@ -5,17 +5,21 @@ import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './events.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { CardComponent } from './card/card.component';
+import { AddEventComponent } from './components/add-event/add-event.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     EventsComponent,
     EventDetailsComponent,
-    CardComponent
+    CardComponent,
+    AddEventComponent
   ],
   imports: [
     CommonModule,
-    EventsRoutingModule
+    EventsRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class EventsModule { }
