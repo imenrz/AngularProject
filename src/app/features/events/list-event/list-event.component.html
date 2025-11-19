@@ -37,6 +37,11 @@
                         <button class="btn btn-sm btn-primary" [routerLink]="['./',event.id]" >
                     view details
                     </button>
+<button 
+  class="btn btn-sm btn-primary" [routerLink]="['/events/participation', event.id, event.prix]"
+  [disabled]="event.nbPlaces == 0">
+  Participer
+</button>
                     <span class="ms-2"></span>
                 </div>
             </div>

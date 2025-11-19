@@ -1,0 +1,30 @@
+<h3>participation-form</h3>
+
+<form #form="ngForm">
+
+    <label for="email">Email</label>
+    <input type="text" name="email" ngModel #emailCtrl="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+    <div *ngIf="emailCtrl.touched && emailCtrl.invalid">
+        <span *ngIf="emailCtrl.hasError('required')" style="color: red;"> 
+            L'email est obligatoire.
+        </span>
+        <span *ngIf="emailCtrl.hasError('pattern')" style="color: red;"> 
+            Le format de l'email est invalide.
+        </span>
+    </div>
+    
+    <label for="nbPlaces">nbPlaces</label>
+    <input type="number" name="nbPlaces" ngModel #nbPlacesCtrl="ngModel" required min="1" 
+    (blur)="calculerTotalPrice(2)">
+    <div *ngIf="nbPlacesCtrl.touched && nbPlacesCtrl.invalid">
+        <span *ngIf="nbPlacesCtrl.hasError('required')" style="color: red;"> 
+            Le nombre de places est obligatoire.
+        </span>
+        <span *ngIf="nbPlacesCtrl.hasError('min')" style="color: red;"> 
+            Le nombre de places doit être strictement supérieur à 0.
+        </span>
+    </div>
+   <label for="">Total: {{total}}</label>
+    <button type="submit" [disabled]="form.invalid">Soumettre</button>
+
+</form>

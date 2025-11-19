@@ -4,16 +4,18 @@ import { EventsComponent } from './events.component';
 import { LidtEventComponent } from './list-event/list-event.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
+import { ParticipationFormComponent } from './participation-form/participation-form.component';
 
-const routes: Routes = [{ path: '', component: EventsComponent, 
-  children : [
-
-    {path: '',component:LidtEventComponent},
-    {path: 'addEvent',component:AddEventComponent},
-    {path:':id',component:EventDetailsComponent}
-
+const routes: Routes = [{ 
+  path: '', 
+  component: EventsComponent, 
+  children: [
+    { path: '', component: LidtEventComponent },
+    { path: 'addEvent', component: AddEventComponent },
+    { path: 'participation/:id/:prix', component: ParticipationFormComponent },  // <-- AVANT :id
+    { path: ':id', component: EventDetailsComponent }  // <-- Cette route doit être en dernier
   ]
- }];
+}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
